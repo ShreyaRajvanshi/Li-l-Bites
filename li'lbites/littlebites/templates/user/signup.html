@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charst="UTF-8" />
+    <meta name="veiwport" content="widht=device-weidth", inital-scale=1.0,
+    shrink-to-fit=no">
+    <title>SignUp</title>
+
+    <!-- Font Awesome -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- MDB -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.1.0/mdb.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background-image: url("https://png.pngtree.com/png-vector/20200117/ourmid/pngtree-set-of-cute-fast-food-vector-illustration-png-image_2131003.jpg");
+      }
+    </style>
+  </head>
+  <body>
+    {% include 'customer/nav.html' %} {% for message in messages %}
+
+      <div class="form-group pt-3">
+      <div
+        class="alert alert-{{ message.tags }} alert-dismissible fade show"
+        role="alert"
+      >
+        <strong>Message:</strong> {{ message }}
+        <button
+          type="button"
+          class="close"
+          data-dismiss="alert"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      {% endfor %}
+  <div class ="card">
+      <h2 style="color: royalblue; font-weight: bold">!Create Your Account!</h2>
+      <form method="POST" action="signup">
+        {% csrf_token %}
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input
+            type="text"
+            class="form-control"
+            id="username"
+            name="username"
+            placeholder="Create A Username (use only letters and numbers)"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="fname">First Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="fname"
+            name="fname"
+            placeholder="Enter Your First Name"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="lname">Last Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="lname"
+            name="lname"
+            placeholder="Enter Your Last Name"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            name="email"
+            placeholder="Enter Your Email Address"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="pass1">Password</label>
+          <input
+            type="password"
+            class="form-control"
+            id="pass1"
+            name="pass1"
+            placeholder="Create Your Password"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="pass2">Confirm Password</label>
+          <input
+            type="password"
+            class="form-control"
+            id="pass2"
+            name="pass2"
+            placeholder="Confirm Your Password"
+            required
+          />
+        </div>
+        <button type="submit" class="btn btn-primary">Sign Up</button>
+      </form>
+  </div>
+    {% include 'customer/footer.html' %}
+    <!-- MDB -->
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.1.0/mdb.min.js"
+    ></script>
+  </body>
+</html>
